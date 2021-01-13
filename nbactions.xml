@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-generate jadadoc</actionName>
+            <displayName>generate jadadoc</displayName>
+            <goals>
+                <goal>javadoc:javadoc</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-test</actionName>
+            <displayName>test</displayName>
+            <goals>
+                <goal>test-compile</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Coverage report</actionName>
+            <displayName>Coverage report</displayName>
+            <goals>
+                <goal>test</goal>
+                <goal>jacoco:report</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-teste, coverage, mutation</actionName>
+            <displayName>teste, coverage, mutation</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>test</goal>
+                <goal>jacoco:report</goal>
+                <goal>org.pitest:pitest-maven:mutationCoverage</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-report faster</actionName>
+            <displayName>report faster</displayName>
+            <goals>
+                <goal>test</goal>
+                <goal>jacoco:report</goal>
+                <goal>org.pitest:pitest-maven:mutationCoverage</goal>
+                <goal>-DhistoryInputFile=target/fasterPitMutationTesting-history.txt</goal>
+                <goal>-DhistoryOutputFile=target/fasterPitMutationTesting-history.txt</goal>
+                <goal>-Dsonar.pitest.mode=reuseReport</goal>
+                <goal>-Dthreads=4</goal>
+                <goal>-DtimestampedReports=false</goal>
+                
+            </goals>
+        </action>
+    </actions>
